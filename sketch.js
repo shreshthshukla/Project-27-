@@ -27,16 +27,16 @@ function setup() {
 	ball4 = new Bob(500,450);
 	ball5 = new Bob(550,450);
 	roof = new Roof();
-	rope1 = new Rope(ball1.body,roof.body);
-	rope2 = new Rope(ball2.body,roof.body);
-	rope3 = new Rope(ball3.body,roof.body);
-	rope4 = new Rope(ball4.body,roof.body);
-	rope5 = new Rope(ball5.body,roof.body);
+	rope1 = new Rope(ball1.body,roof.body,0,0);
+	rope2 = new Rope(ball2.body,roof.body,50,0);
+	rope3 = new Rope(ball3.body,roof.body,100,0);
+	rope4 = new Rope(ball4.body,roof.body,-100,0);
+	rope5 = new Rope(ball5.body,roof.body,-50,0);
 }
 
 
 function draw() {
-//   rectMode(CENTER);
+
   background("white");
   ball1.display();
   ball2.display();
@@ -50,6 +50,12 @@ function draw() {
   rope4.display();
   rope5.display();
 }
+function keyPressed() {
+	if (keyCode === UP_ARROW) {
 
+	  Matter.Body.applyForce(ball4.body,ball4.body.position,{x:-110,y:-150});
+  
+	}
+}
 
 
